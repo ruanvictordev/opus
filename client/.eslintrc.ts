@@ -1,4 +1,6 @@
-module.exports = {
+import { Linter } from 'eslint';
+
+const config: Linter.Config = {
   env: {
     browser: true,
     es2021: true,
@@ -12,7 +14,6 @@ module.exports = {
     'plugin:prettier/recommended',
     'plugin:storybook/recommended',
   ],
-
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
@@ -32,3 +33,5 @@ module.exports = {
     'prettier/prettier': ['error', { endOfLine: 'auto' }],
   },
 };
+
+export default config;
