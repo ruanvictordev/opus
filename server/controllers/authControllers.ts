@@ -1,6 +1,8 @@
 import { error } from 'console';
 import { Request, Response } from 'express';
+import { JwtPayload, VerifyErrors } from 'jsonwebtoken';
 
+const jwt = require('jsonwebtoken');
 const { hashPassword, comparePassword } = require('../helpers/auth')
 const Candidate = require('../models/candidate');
 
@@ -52,7 +54,14 @@ const login = async (req: Request, res: Response) =>{
 
         const match = await comparePassword(password, candidate.password)
         if(match){
-            res.json('Password match')
+            jwt.sign(
+                { email: candidate.email, id: candidate._id, name: candidate.name },
+                process.env.JWT_SECRET as string, {},
+                (err: Error | null, token: string | undefined) => {
+                    if (err) throw err;
+                    res.cookie('token', token).json(candidate);
+                }
+            );
         }
         if(!match){
             res.json({
@@ -64,7 +73,23 @@ const login = async (req: Request, res: Response) =>{
     }
 }
 
+const getCandidate = async (req: Request, res: Response) => {
+    const { token } = req.cookies;
+    if (token) {
+        jwt.verify(token, process.env.JWT_SECRET as string, {}, (err: VerifyErrors | null, candidate: JwtPayload | string | undefined) => {
+            if (err) {
+                throw err;
+            }
+            res.json(candidate);
+        });
+    } else {
+        res.json(null);
+    }
+}
+
+
 module.exports = {
     registerCandidate,
-    login
+    login,
+    getCandidate
 }
