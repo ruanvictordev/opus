@@ -1,6 +1,8 @@
 import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home/Home";
+
 import Register from "./pages/Resgiter/Resgiter";
+
 import Login from "./pages/Login/Login";
 
 function App() {
@@ -14,5 +16,6 @@ function App() {
     </>
   );
 }
+
 
 export default App;

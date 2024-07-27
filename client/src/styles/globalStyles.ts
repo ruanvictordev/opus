@@ -10,4 +10,6 @@ export const GlobalStyles = createGlobalStyle`
  body{
     background: ${theme.colors.colorFour};
  }
+
 `;
+
