@@ -1,12 +1,15 @@
 import Styled from "styled-components";
 import { Link } from "react-router-dom";
-import { theme } from "../styles/theme";
+import { theme } from "../../styles/theme";
 
 export const Nav = Styled.div`
   display: flex;
   align-items:center;
   justify-content: space-between;
+  /* 
+  
   background:${theme.colors.colorOne};
+  */
   padding:20px 40px 20px 40px;
 `;
 
@@ -33,6 +36,7 @@ export const P = Styled.p`
 font-size:10px;
 `;
 export const Div = Styled.div`
+ 
 
 
 `;
