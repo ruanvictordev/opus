@@ -5,5 +5,6 @@ export const theme = {
     colorTwo: "#0064CF",
     colorThree: "#007BFF",
     colorFour: "#FCFCFC",
+    colorFive: "#0064CF",
   },
 };
