@@ -1,11 +1,9 @@
 import styled from "styled-components";
 
 export const Main = styled.main`
-/* <<<<<<< HEAD */
-  height: 100vh;
-  border: 1px black solid;
-  padding: 10px;
-`;
+    height: 100vh;
+    
+`
 export const Div = styled.div`
   display: flex;
   justify-content: space-around;

@@ -8,7 +8,7 @@ export const GlobalStyles = createGlobalStyle`
   box-sizing: border-box;
  }
  body{
-   background: ${theme.colors.colorFour};
+  background: ${theme.colors.colorFour};
 
  }
 

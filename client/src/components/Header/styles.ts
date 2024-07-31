@@ -6,6 +6,7 @@ export const Nav = Styled.div`
   display: flex;
   align-items:center;
   justify-content: space-between;
+  border: 1px solid black;
   /* 
   
   background:${theme.colors.colorOne};
@@ -40,3 +41,8 @@ export const Div = Styled.div`
 
 
 `;
+
+export const LogoOpus = Styled.img`
+  height: 50px;
+  weight: 50px;
+`
