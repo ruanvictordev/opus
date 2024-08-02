@@ -7,11 +7,11 @@ export const Nav = Styled.div`
   align-items:center;
   justify-content: space-between;
   border: 1px solid black;
-  /* 
+  
   
   background:${theme.colors.colorOne};
-  */
-  padding:20px 40px 20px 40px;
+ 
+  padding: 20px 40px 20px 40px;
 `;
 
 export const StyledLink = Styled(Link)`
@@ -37,12 +37,22 @@ export const P = Styled.p`
 font-size:10px;
 `;
 export const Div = Styled.div`
- 
-
-
+  border: 1px solid black;
+  
+  //Para telas menores de 768px
+  @media (max-width: 768px) {
+  display: none;
+  }
 `;
 
 export const LogoOpus = Styled.img`
   height: 50px;
   weight: 50px;
+`
+export const iconResponsi = Styled.div`
+  display: none;
+
+  @media (max-width: 768px) {
+    display: block;
+  }
 `

@@ -1,18 +1,27 @@
 import styled from "styled-components";
+import { theme } from "../../styles/theme";
+
 
 export const Main = styled.main`
   
-  height: 100vh;
+  height: 80vh;
+  /* border: 1px solid black; */
+
   
 `
 export const Div = styled.div`
+    
+  
+  background:${theme.colors.colorOne};
+ 
+  height: 100%;
   /* margin: auto;
-  border: 1px solid black;
   display: flex;
   justify-content: space-around;
   align-items: center; */
   display: flex;
-  margin: 50px auto;
+  margin: auto;
+  padding: 50px 0;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
@@ -28,7 +37,7 @@ export const Text = styled.h1`
   /* border: 1px solid black; */
   color: #ffffff;
   flex: 1;
-  margin: 0px 50px 70px 190px;
+  margin: 0px 30px 10px 190px;
   text-align: center;
   //margin-right: 20px;
 
