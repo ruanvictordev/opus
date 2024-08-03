@@ -6,7 +6,7 @@ export const Nav = Styled.div`
   display: flex;
   align-items:center;
   justify-content: space-between;
-  border: 1px solid black;
+  border-bottom: 1px solid black;
   
   
   background:${theme.colors.colorOne};
@@ -37,7 +37,7 @@ export const P = Styled.p`
 font-size:10px;
 `;
 export const Div = Styled.div`
-  border: 1px solid black;
+  /* border: 1px solid black; */
   
   //Para telas menores de 768px
   @media (max-width: 768px) {

@@ -5,7 +5,7 @@ export const Main: React.FC = () => {
     <S.Main>
       <S.Div>
         <S.Text>
-          {" "}
+          {/* {" "} */}
           Conectando Empresas e<br /> Trabalhadores em Pedro II
         </S.Text>
         <S.Img src={img} />
