@@ -22,6 +22,15 @@ export const StyledLink = Styled(Link)`
   margin-left:60px;
 `;
 
+export const StyledLinkMobile = Styled(Link)`
+  font-size:15px;
+  color:black;
+  text-decoration:none;
+  margin:5px;
+  font-weight:bold;
+
+`;
+
 export const Button = Styled.button`
   color:black;
   background:${theme.colors.colorFour};
@@ -44,15 +53,29 @@ export const Div = Styled.div`
   display: none;
   }
 `;
+export const DivM = Styled.div`
+ display:none;
+ @media (max-width:768px){
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  background:${theme.colors.colorFour};
+ }
+
+
+`;
 
 export const LogoOpus = Styled.img`
   height: 50px;
-  weight: 50px;
-`
+  width: 50px;
+`;
 export const iconResponsi = Styled.div`
   display: none;
 
   @media (max-width: 768px) {
     display: block;
+    cursor:pointer;
+    font-size:30px;
   }
-`
+`;
