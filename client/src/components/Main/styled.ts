@@ -1,12 +1,11 @@
 import styled from "styled-components";
 import { theme } from "../../styles/theme";
 
-
 export const Main = styled.main`
   height: 80vh;
-`
+`;
 export const Div = styled.div`
-  background:${theme.colors.colorOne};
+  background: ${theme.colors.colorOne};
   height: 100%;
   /* margin: auto;
   display: flex;
@@ -19,15 +18,13 @@ export const Div = styled.div`
   justify-content: center;
   flex-wrap: wrap;
 
-  
   @media (max-width: 768px) {
     /* border: 1px solid saddlebrown; */
     /* padding: 20px; */
     flex-direction: row;
     align-items: normal;
-}
-    
-`
+  }
+`;
 export const Text = styled.h1`
   /* border: 1px solid black; */
   color: #ffffff;
@@ -42,19 +39,17 @@ export const Text = styled.h1`
     padding: 20px;
     width: 100%;
     height: 100px;
-    margin: 0; 
+    margin: 0;
     /* border: 1px solid black; */
     /* text-align: left;
     margin-bottom: 10px; */
-}
-
-`
+  }
+`;
 export const Img = styled.img`
   width: 39%;
   margin: 50px 95px;
   float: right;
   /* border: 2px black solid; */
-
 
   @media (max-width: 768px) {
     /* border: 2px black solid; */
@@ -62,5 +57,5 @@ export const Img = styled.img`
     width: 100%;
     padding: 30px;
     margin: 0;
-}
-`
+  }
+`;
