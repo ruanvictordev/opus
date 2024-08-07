@@ -2,6 +2,10 @@ import Styled from "styled-components";
 import { Link } from "react-router-dom";
 import { theme } from "../../styles/theme";
 
+export const Main = Styled.div`
+width:100%;
+`;
+
 export const Nav = Styled.div`
   display: flex;
   align-items:center;
@@ -12,6 +16,10 @@ export const Nav = Styled.div`
   background:${theme.colors.colorOne};
  
   padding: 20px 40px 20px 40px;
+
+  @media(max-width:768px){
+    height:100px;
+  }
 `;
 
 export const StyledLink = Styled(Link)`
@@ -26,7 +34,6 @@ export const StyledLinkMobile = Styled(Link)`
   font-size:15px;
   color:black;
   text-decoration:none;
-  margin:5px;
   font-weight:bold;
 
 `;
@@ -53,17 +60,28 @@ export const Div = Styled.div`
   display: none;
   }
 `;
+
+export const DivR = Styled.div`
+
+@media (max-width: 768px){
+  display:inline-block;
+  height:95px;
+  float:right;
+}
+`;
 export const DivM = Styled.div`
- display:none;
  @media (max-width:768px){
   display:flex;
+  position:relative;
+  z-index: 1;
   flex-direction:column;
   justify-content:center;
   align-items:center;
   background:${theme.colors.colorFour};
+  width:100px;
+  gap:10px;
+  border-radius:20px;
  }
-
-
 `;
 
 export const LogoOpus = Styled.img`
