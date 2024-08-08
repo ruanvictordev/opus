@@ -1,37 +1,57 @@
-import React from 'react'
+// src/components/RegisterForm.tsx
+import React, { useState } from 'react';
 
-export default function Register() {
-    const registerCandidate = (e: { preventDefault: () => void; }) => {
+import axiosInstance from '../../services/axios';
+import toast, { Toaster } from 'react-hot-toast';
+
+const RegisterForm: React.FC = () => {
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        phone: '',
+        address: '',
+        age: '',
+        about: '',
+        experience: '',
+        formation: '',
+        curriculum: '',
+        password: ''
+    });
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setFormData({ ...formData, [e.target.name]: e.target.value });
+    };
+
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-    }
+        try {
+            const response = await axiosInstance.post('/register', formData);
+            if (response.data.error) {
+                toast.error(response.data.error);
+            } else {
+                toast.success('Registro realizado com sucesso', response.data);
+            }
+        } catch (error) {
+            toast.error('Erro ao registrar');
+        }
+    };
 
     return (
-    <div>
-        <form onSubmit={registerCandidate}>
-            <label>Nome Completo</label>
-            <input type="text" id='name' placeholder='Nome completo...'/>
-            <label>Email</label>
-            <input type="text" id='email' placeholder='Email...'/><br></br>
-            <label>Telefone</label>
-            <input type="text" id='phone' placeholder='Telefone...'/>
-            <label>Endereço</label>
-            <input type="text" id='address' placeholder='Endereço...'/>
-            <label>Idade</label>
-            <input type="text" id='age' placeholder='Idade...'/><br></br>
-            <label>Sobre</label>
-            <textarea name="about" id="about" placeholder='Sobre...'></textarea>
-            <label>Experiência</label>
-            <input type="text" id='experience' placeholder='Experiência...'/><br></br>
-            <label>Formação</label>
-            <input type="text" id='formation' placeholder='Formação...'/>
-            <label>Curriculo</label>
-            <input type="text" id='curriculum' placeholder='Curriculo...'/><br></br>
-            <label>Senha</label>
-            <input type="text" id='password' placeholder='Senha...'/>
-            <label>Confirmar Senha</label>
-            <input type="text" id='confirmPassword' placeholder='Confirmar senha...'/><br></br>
-            <button type='submit'>Cadastrar</button>
+        <form onSubmit={handleSubmit}>
+            <input type="text" name="name" value={formData.name} onChange={handleChange} placeholder="Nome" />
+            <input type="email" name="email" value={formData.email} onChange={handleChange} placeholder="Email" />
+            <input type="text" name="phone" value={formData.phone} onChange={handleChange} placeholder="Telefone" />
+            <input type="text" name="address" value={formData.address} onChange={handleChange} placeholder="Endereço" />
+            <input type="number" name="age" value={formData.age} onChange={handleChange} placeholder="Idade" />
+            <input type="text" name="about" value={formData.about} onChange={handleChange} placeholder="Sobre você" />
+            <input type="text" name="experience" value={formData.experience} onChange={handleChange} placeholder="Experiência" />
+            <input type="text" name="formation" value={formData.formation} onChange={handleChange} placeholder="Formação" />
+            <input type="text" name="curriculum" value={formData.curriculum} onChange={handleChange} placeholder="Currículo" />
+            <input type="password" name="password" value={formData.password} onChange={handleChange} placeholder="Senha" />
+            <button type="submit">Registrar</button>
+            <Toaster />
         </form>
-    </div>
-  )
-}
+    );
+};
+
+export default RegisterForm;
