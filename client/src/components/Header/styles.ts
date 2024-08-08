@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { theme } from "../../styles/theme";
 
 export const Main = Styled.div`
-width:100%;
+  width:100%;
 `;
 
 export const Nav = Styled.div`
@@ -67,6 +67,7 @@ export const DivR = Styled.div`
   display:inline-block;
   height:95px;
   float:right;
+
 }
 `;
 export const DivM = Styled.div`

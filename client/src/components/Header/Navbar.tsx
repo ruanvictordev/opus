@@ -1,8 +1,10 @@
 import * as S from "./styles";
-import img from "../../assets/img/opus_logo.jpeg";
+import img from "../../assets/img/Logotipo-Vetor(1).png";
 import { FiAlignJustify, FiX } from "react-icons/fi";
 import { motion } from "framer-motion";
 import { useState } from "react";
+
+
 export default function Navbar() {
   const [show, setShow] = useState(false);
 
