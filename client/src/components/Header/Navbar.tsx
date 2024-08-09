@@ -56,7 +56,7 @@ export default function Navbar() {
                     animate={{ x: 0, opacity: 1 }}
                     transition={{ ease: "easeOut", duration: 0.5 }}
                   >
-                    <S.StyledLinkMobile to="">entrar</S.StyledLinkMobile>
+                    <S.StyledLinkMobile to="">Entrar</S.StyledLinkMobile>
                   </motion.div>
                 </S.DivM>
               </S.DivR>
@@ -71,7 +71,7 @@ export default function Navbar() {
             <S.StyledLink to="">Destaques</S.StyledLink>
             <S.StyledLink to="">Vagas</S.StyledLink>
             <S.StyledLink to="">Sobre</S.StyledLink>
-            <S.Button>entrar</S.Button>
+            <S.Button>Entrar</S.Button>
           </S.Div>
         </S.Nav>
       </S.Main>

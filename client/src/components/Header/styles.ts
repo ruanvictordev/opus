@@ -28,6 +28,10 @@ export const StyledLink = Styled(Link)`
   font-weight:bold;
   color:${theme.colors.colorFour};// importando o theme usa as colores que la tem
   margin-left:60px;
+
+  &:hover {
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
+  }
 `;
 
 export const StyledLinkMobile = Styled(Link)`
@@ -41,11 +45,15 @@ export const StyledLinkMobile = Styled(Link)`
 export const Button = Styled.button`
   color:black;
   background:${theme.colors.colorFour};
-  border-radius:50%;
+  border-radius:7px;
   padding:10px;
   margin:0px 60px 0px 60px;
   border:none;
   font-weight:bold;
+
+  &:hover {
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.8);
+  }
 
 `;
 

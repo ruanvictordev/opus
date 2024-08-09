@@ -1,5 +1,5 @@
 import { createGlobalStyle } from "styled-components";
-import { theme } from "./theme";
+// import { theme } from "./theme";
 
 export const GlobalStyles = createGlobalStyle`
     *{
@@ -7,10 +7,13 @@ export const GlobalStyles = createGlobalStyle`
     padding:0px;
     box-sizing: border-box;
     }
-    /* body{
-    background: ${theme.colors.colorFour};
-
-    } */
+    button{
+        cursor:pointer;
+    }
+    body, button, input{
+        font-family: "Inter", sans-serif;
+    }
 
 `;
+
 
