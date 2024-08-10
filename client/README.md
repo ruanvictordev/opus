@@ -1,5 +1,6 @@
 # React + TypeScript + Vite
 
+Instalação para o material UI : npm install @mui/material @emotion/react @emotion/styled
 Instalção para icon: npm install react-icons --save
 Instalação para o framer-motion: npm install framer-motion
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.

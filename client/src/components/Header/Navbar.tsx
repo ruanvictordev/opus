@@ -1,12 +1,17 @@
 import * as S from "./styles";
-import img from "../../assets/img/Logotipo-Vetor(1).png";
+import img from "../../assets/img/opus_logo.jpeg";
 import { FiAlignJustify, FiX } from "react-icons/fi";
 import { motion } from "framer-motion";
 import { useState } from "react";
-
+import React from "react";
+import Modal from "@mui/material/Modal";
+import Box from "@mui/material/Box";
 
 export default function Navbar() {
   const [show, setShow] = useState(false);
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
   const handShow = () => {
     setShow(!show); // aqui ele muda o valor boolean da variavel ao clicar
@@ -56,7 +61,7 @@ export default function Navbar() {
                     animate={{ x: 0, opacity: 1 }}
                     transition={{ ease: "easeOut", duration: 0.5 }}
                   >
-                    <S.StyledLinkMobile to="">Entrar</S.StyledLinkMobile>
+                    <S.Button onClick={handleOpen}>entrar</S.Button>
                   </motion.div>
                 </S.DivM>
               </S.DivR>
@@ -71,9 +76,24 @@ export default function Navbar() {
             <S.StyledLink to="">Destaques</S.StyledLink>
             <S.StyledLink to="">Vagas</S.StyledLink>
             <S.StyledLink to="">Sobre</S.StyledLink>
-            <S.Button>Entrar</S.Button>
+            <S.Button onClick={handleOpen}>entrar</S.Button>
           </S.Div>
         </S.Nav>
+        <Modal
+          open={open}
+          onClose={handleClose}
+          aria-labelledby="modal-modal-title"
+          aria-describedby="modal-modal-description"
+        >
+          <Box>
+            <S.Modal>
+              <S.PositionI>
+                <FiX onClick={handleClose} />
+              </S.PositionI>
+              <S.H1>Cadastro</S.H1>
+            </S.Modal>
+          </Box>
+        </Modal>
       </S.Main>
     </>
   );
