@@ -71,6 +71,7 @@ export const Modal = Styled.div`
   border: 2px solid #000;
   box-shadow: 4px black;
   padding:32px;
+  
   @media(max-width:768px){
     position: absolute;
     transform:translate(-50%,- 50%);
