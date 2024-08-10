@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { theme } from "../../styles/theme";
 
 export const Main = Styled.div`
-width:100%;
+  width:100%;
 `;
 export const Nav = Styled.div`
   display: flex;
@@ -27,6 +27,10 @@ export const StyledLink = Styled(Link)`
   font-weight:bold;
   color:${theme.colors.colorFour};// importando o theme usa as colores que la tem
   margin-left:60px;
+
+  &:hover {
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
+  }
 `;
 
 export const StyledLinkMobile = Styled(Link)`
@@ -40,7 +44,7 @@ export const StyledLinkMobile = Styled(Link)`
 export const Button = Styled.button`
   color:black;
   background:${theme.colors.colorFour};
-  border-radius:50%;
+  border-radius:7px;
   padding:10px;
   margin:0px 60px 0px 60px;
   border:none;
@@ -50,6 +54,10 @@ export const Button = Styled.button`
     background:${theme.colors.colorOne};
     color:${theme.colors.colorFour};
     margin-bottom:20px;
+  }
+
+  &:hover {
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.8);
   }
 
 `;
@@ -97,6 +105,7 @@ export const DivR = Styled.div`
   display:inline-block;
   height:94px;
   float:right;
+
 }
 `;
 export const DivM = Styled.div`
