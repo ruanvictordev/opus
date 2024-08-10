@@ -65,9 +65,9 @@ export const Modal = Styled.div`
   padding:32px;
   @media(max-width:768px){
     position: absolute;
-  transform:translate(-50%,- 50%);
-  top: 20%;
-  left: 10%;
+    transform:translate(-50%,- 50%);
+    top: 20%;
+    left: 10%;
   }
 
 `;

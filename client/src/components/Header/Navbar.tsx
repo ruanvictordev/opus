@@ -3,15 +3,13 @@ import img from "../../assets/img/opus_logo.jpeg";
 import { FiAlignJustify, FiX } from "react-icons/fi";
 import { motion } from "framer-motion";
 import { useState } from "react";
-import React from "react";
-import Modal from "@mui/material/Modal";
-import Box from "@mui/material/Box";
 
-export default function Navbar() {
+interface NavBarProps {
+  handleOpen: () => void;
+}
+
+export default function Navbar({ handleOpen }: NavBarProps) {
   const [show, setShow] = useState(false);
-  const [open, setOpen] = React.useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
 
   const handShow = () => {
     setShow(!show); // aqui ele muda o valor boolean da variavel ao clicar
@@ -79,21 +77,6 @@ export default function Navbar() {
             <S.Button onClick={handleOpen}>entrar</S.Button>
           </S.Div>
         </S.Nav>
-        <Modal
-          open={open}
-          onClose={handleClose}
-          aria-labelledby="modal-modal-title"
-          aria-describedby="modal-modal-description"
-        >
-          <Box>
-            <S.Modal>
-              <S.PositionI>
-                <FiX onClick={handleClose} />
-              </S.PositionI>
-              <S.H1>Cadastro</S.H1>
-            </S.Modal>
-          </Box>
-        </Modal>
       </S.Main>
     </>
   );
