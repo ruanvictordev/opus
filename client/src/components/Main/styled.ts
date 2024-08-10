@@ -6,7 +6,7 @@ export const Main = styled.main`
 `;
 export const Div = styled.div`
   background: ${theme.colors.colorOne};
-  height: 100%;
+  /* height: 100%; */
   /* margin: auto;
   display: flex;
   justify-content: space-around;
@@ -21,6 +21,7 @@ export const Div = styled.div`
   @media (max-width: 768px) {
     /* border: 1px solid saddlebrown; */
     /* padding: 20px; */
+  
     flex-direction: row;
     align-items: normal;
   }
