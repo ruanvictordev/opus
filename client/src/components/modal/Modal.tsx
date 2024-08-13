@@ -18,10 +18,53 @@ export default function ModalComponet({ handleOpen, open }: ModalProps) {
       >
         <Box>
           <S.Modal>
+
             <S.PositionI>
               <FiX onClick={handleOpen} />
             </S.PositionI>
-            <S.H1>Cadastro</S.H1>
+
+            <S.conteiner>
+            
+              <S.cx>
+                <S.H1>Login</S.H1>
+              </S.cx>
+
+              <S.cx>
+                <S.titulo>
+                  Email:
+                </S.titulo>
+              </S.cx>
+
+              <S.cx>
+                <S.titulo>
+                  Senha:
+                </S.titulo>
+              </S.cx>
+
+              <S.divEsquecerSenha>
+                <S.esquecerSenha>
+                  esqueceu senha?
+                </S.esquecerSenha>
+              </S.divEsquecerSenha>
+
+              <S.cx>
+                <S.titulo>
+                  Entrar
+                </S.titulo>
+              </S.cx>
+
+              <S.divCadastros>
+              <S.esquecerSenha>
+                  Cadastro Candidato
+                </S.esquecerSenha> 
+                
+                <S.esquecerSenha>
+                  Cadastro Empresa
+                </S.esquecerSenha>
+              </S.divCadastros>
+            </S.conteiner>
+
+
           </S.Modal>
         </Box>
       </Modal>
