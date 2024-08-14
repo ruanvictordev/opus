@@ -1,41 +1,20 @@
 import { error } from 'console';
 import { Request, Response } from 'express';
 import { JwtPayload, VerifyErrors } from 'jsonwebtoken';
-
+import { isAuthValidate, AuthDTO, throwAuthResError  } from '../helpers/auth.util';
 const jwt = require('jsonwebtoken');
 const { hashPassword, comparePassword } = require('../helpers/auth')
 const Candidate = require('../models/candidate');
+import { registerNewCandidate } from '../services/authservice';
 
 const registerCandidate = async (req: Request, res: Response) =>{
     try {
-        const {name, email, phone, address, age, about, experience, formation, curriculum, password} = req.body;
+        const data: AuthDTO = req.body
+        if(!isAuthValidate(data)) return throwAuthResError('Preencha todos os campos!', res);
         
-        if(!name || !email || !phone || !address || !age || !about || !experience || !formation || !curriculum || !password){
-            return res.json({
-                error: 'Preencha todos os campos!'
-            })
-        }
-        
-        if(password.length < 8){
-            return res.json({
-                error: 'Sua senha deve ter 8 ou mais caracteres!'
-            })
-        }
+        const createdCandidate = await registerNewCandidate(res, data);
 
-        const exist = await Candidate.findOne(({email}));
-        if(exist){
-            return res.json({
-                error: 'Este email já está em uso!'
-            })
-        }
-
-        const hashedPassword = await hashPassword(password)
-
-        const candidate = await Candidate.create({
-            name, email, phone, address, age, about, experience, formation, curriculum, password: hashedPassword
-        });
-
-        return res.json(candidate);
+        return createdCandidate;
     } catch (error) {
         console.log(error);
     }
@@ -93,3 +72,11 @@ module.exports = {
     login,
     getCandidate
 }
+
+function throwAuthError(arg0: string, res: Response<any, Record<string, any>>) {
+    throw new Error('Function not implemented.');
+}
+function isValidate(data: AuthDTO) {
+    throw new Error('Function not implemented.');
+}
+
