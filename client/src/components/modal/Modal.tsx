@@ -29,17 +29,19 @@ export default function ModalComponet({ handleOpen, open }: ModalProps) {
                 <S.H1>Login</S.H1>
               </S.cx>
 
-              <S.cx>
-                <S.titulo>
-                  Email:
-                </S.titulo>
-              </S.cx>
+              <S.inputs>
 
-              <S.cx>
-                <S.titulo>
-                  Senha:
-                </S.titulo>
-              </S.cx>
+                <S.titulo  type="text" placeholder="Email"/>
+                  
+               
+              
+
+              
+                <S.titulo type="text" placeholder="Senha"/>
+              </S.inputs>
+                  
+               
+              
 
               <S.divEsquecerSenha>
                 <S.esquecerSenha>
@@ -48,9 +50,9 @@ export default function ModalComponet({ handleOpen, open }: ModalProps) {
               </S.divEsquecerSenha>
 
               <S.cx>
-                <S.titulo>
+                <S.btnEntrar>
                   Entrar
-                </S.titulo>
+                </S.btnEntrar>
               </S.cx>
 
               <S.divCadastros>
@@ -62,9 +64,8 @@ export default function ModalComponet({ handleOpen, open }: ModalProps) {
                   Cadastro Empresa
                 </S.esquecerSenha>
               </S.divCadastros>
+
             </S.conteiner>
-
-
           </S.Modal>
         </Box>
       </Modal>
