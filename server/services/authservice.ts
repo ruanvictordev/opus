@@ -4,7 +4,7 @@ import { throwAuthResError } from "../helpers/auth.util";
 import { comparePassword } from "../helpers/auth";
 const { hashPassword } = require("../helpers/auth");
 const Candidate = require("../models/candidate");
-const jwt = require('jsonwebtoken');
+const jwt = require("jsonwebtoken");
 
 export async function registerNewCandidate(res: Response, data: AuthDTO) {
   if (!isAuthValidate(data))
@@ -14,7 +14,7 @@ export async function registerNewCandidate(res: Response, data: AuthDTO) {
 
   if (await Candidate.exists({ email: data.email })) {
     return throwAuthResError("Usuário já Cadastrado", res);
-  }  
+  }
 
   data.password = await hashPassword(data.password);
   const createdCandidate = await Candidate.create(data);
@@ -29,15 +29,18 @@ export async function authenticateUser(res: Response, data: AuthDTO) {
 
   const match = await comparePassword(data.password, candidate.password);
   if (match) {
-    jwt.sign(
-      { email: candidate.email, id: candidate._id, name: candidate.name },
-      process.env.JWT_SECRET as string,
-      {},
-      (err: Error | null, token: string | undefined) => {
-        if (err) throw err;
-        res.cookie("token", token).json(candidate);
-      }
-    );
+    const token = jwt.sign({ id: candidate._id }, process.env.JWT_SECRET, {
+      expiresIn: "1h",
+    });
+
+    res.cookie("token", token, {
+      httpOnly: true,
+      sameSite: "lax",
+      maxAge: 3600000, // 1 hora
+    });
+
+    return res.json({ message: "Login bem-sucedido" });
+  } else {
+    throwAuthResError("Email ou Senha Incorretos!", res);
   }
-  if (!match) throwAuthResError("Email ou Senha Incorretos!", res);
 }

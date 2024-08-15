@@ -1,7 +1,7 @@
 // src/components/LoginForm.tsx
 import React, { useState } from 'react';
-
-import axiosInstance from '../../services/axios';
+import { useNavigate } from 'react-router-dom';
+import axiosInstance from '../../services/axios'; // Certifique-se de que o caminho está correto
 import toast, { Toaster } from 'react-hot-toast';
 
 const LoginForm: React.FC = () => {
@@ -9,6 +9,8 @@ const LoginForm: React.FC = () => {
         email: '',
         password: ''
     });
+
+    const navigate = useNavigate(); // Corrigir a importação de useNavigate
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -21,7 +23,8 @@ const LoginForm: React.FC = () => {
             if (response.data.error) {
                 toast.error(response.data.error);
             } else {
-                toast.success('Login realizado com sucesso', response.data);
+                toast.success('Login realizado com sucesso');
+                navigate('/candidate'); // Corrigir a chamada de navigate
             }
         } catch (error) {
             toast.error('Erro ao logar');

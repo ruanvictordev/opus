@@ -1,5 +1,6 @@
 const express = require('express');
 import cors from 'cors';
+import { authenticateToken } from '../helpers/auth';
 const {registerCandidate, login, getCandidate} = require('../controllers/authControllers');
 
 const router = express.Router();
@@ -13,6 +14,6 @@ router.use(
 
 router.post('/register', registerCandidate)
 router.post('/login', login)
-router.get('/candidate', getCandidate)
+router.get('/candidate', authenticateToken, getCandidate);
 
 module.exports = router

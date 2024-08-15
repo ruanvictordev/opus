@@ -26,10 +26,7 @@ export const login = async (req: Request, res: Response) =>{
 }
 
 export const getCandidate = async (req: Request, res: Response) => {
-    const { token } = req.cookies;
-    if (token) {
-        await getUserToken(token, res);
-    } else {
-        res.json(null);
-    }
-}
+    const token = req.cookies.token;
+
+    await getUserToken(token, res);
+};
