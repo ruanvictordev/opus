@@ -27,7 +27,7 @@ const RegisterForm: React.FC = () => {
         try {
             const response = await axiosInstance.post('/register', formData);
             if (response.data.error) {
-                toast.error("Usuario ja Cadastrado");
+                toast.error(response.data.error);
             } else {
                 toast.success('Registro realizado com sucesso', response.data);
             }
