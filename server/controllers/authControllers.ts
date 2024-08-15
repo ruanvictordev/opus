@@ -1,8 +1,7 @@
 import { Request, Response } from 'express';
-import { JwtPayload, VerifyErrors } from 'jsonwebtoken';
 import { AuthDTO } from '../helpers/auth.util';
-const jwt = require('jsonwebtoken');
 import { authenticateUser, registerNewCandidate } from '../services/authservice';
+import { getUserToken } from '../helpers/auth';
 
 export const registerCandidate = async (req: Request, res: Response) =>{
     try {
@@ -29,12 +28,7 @@ export const login = async (req: Request, res: Response) =>{
 export const getCandidate = async (req: Request, res: Response) => {
     const { token } = req.cookies;
     if (token) {
-        jwt.verify(token, process.env.JWT_SECRET as string, {}, (err: VerifyErrors | null, candidate: JwtPayload | string | undefined) => {
-            if (err) {
-                throw err;
-            }
-            res.json(candidate);
-        });
+        await getUserToken(token, res);
     } else {
         res.json(null);
     }
