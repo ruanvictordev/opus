@@ -1,11 +1,19 @@
 import * as S from "./stylesForm";
 import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
+import { FiX } from "react-icons/fi";
+
 interface ModalProps {
+  handleOpen: () => void;
   open: boolean;
+  // handModalForm: () => void;
 }
 
-export default function ModalForm({ open }: ModalProps) {
+export default function ModalForm({ 
+  handleOpen,
+  open,
+  // handModalForm,
+ }: ModalProps) {
   return (
     <>
       <Modal
@@ -15,6 +23,10 @@ export default function ModalForm({ open }: ModalProps) {
       >
         <Box>
           <S.Modal>
+
+            <S.PositionI>
+              <FiX onClick={handleOpen} />
+            </S.PositionI>
             <S.conteiner>
               <S.cx>
                 <S.H1>Formulario</S.H1>

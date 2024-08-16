@@ -50,31 +50,11 @@ export default function ModalLogin({
               </S.inputs>
 
               <S.divEsquecerSenha>
-                <S.esquecerSenha>esqueceu senha?</S.esquecerSenha>
+                <S.esquecerSenha>Esqueceu senha?</S.esquecerSenha>
               </S.divEsquecerSenha>
 
-              <S.cx>
-                <S.btnEntrar onClick={handModalForm}>Entrar</S.btnEntrar>
-              </S.cx>
-
-<<<<<<< HEAD
-              <S.divCadastros>
-                <S.esquecerSenha>Cadastro Candidato</S.esquecerSenha>
-
-                <S.esquecerSenha>Cadastro Empresa</S.esquecerSenha>
-              </S.divCadastros>
-=======
-              {/* <S.divCadastros>
-              <S.esquecerSenha>
-                  Cadastro Candidato
-                </S.esquecerSenha> 
-                
-                <S.esquecerSenha>
-                  Cadastro Empresa
-                </S.esquecerSenha>
-              </S.divCadastros> */}
-              <FormControl>
-                <FormLabel id="demo-row-radio-buttons-group-label">Tipo de Candidato</FormLabel>
+              <S.FormControl>
+                <S.FormLabel id="demo-row-radio-buttons-group-label">Tipo de Candidato</S.FormLabel>
                 <RadioGroup
                   row
                   aria-labelledby="demo-row-radio-buttons-group-label"
@@ -89,8 +69,28 @@ export default function ModalLogin({
                     label="other"
                   /> */}
                 </RadioGroup>
-              </FormControl>
->>>>>>> 343cad6 (Add input Radio)
+              </S.FormControl>
+
+              <S.cx>
+                <S.btnEntrar onClick={handModalForm}>Entrar</S.btnEntrar>
+              </S.cx>
+
+              {/* <S.divCadastros>
+                <S.esquecerSenha>Cadastro Candidato</S.esquecerSenha>
+
+                <S.esquecerSenha>Cadastro Empresa</S.esquecerSenha>
+              </S.divCadastros> */}
+
+              {/* <S.divCadastros>
+              <S.esquecerSenha>
+                  Cadastro Candidato
+                </S.esquecerSenha> 
+                
+                <S.esquecerSenha>
+                  Cadastro Empresa
+                </S.esquecerSenha>
+              </S.divCadastros> */}
+              
             </S.conteiner>
           </S.Modal>
         </Box>

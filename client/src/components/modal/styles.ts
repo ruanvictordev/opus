@@ -1,4 +1,4 @@
-import Styled from "styled-components";
+import Styled, { styled } from "styled-components";
 import { theme } from "../../styles/theme";
 
 export const Modal = Styled.div`  
@@ -79,16 +79,39 @@ export const titulo = Styled.input`
 export const divEsquecerSenha = Styled.div`
   width: 80%;
   margin: auto;
-  /* border: 1px solid violet; */
-  
+
+  border: 1px solid violet;
 
 `;
 export const esquecerSenha = Styled.p`
   color: #ffffff;
-  /* margin: left; */
+  cursor: pointer;
   
   
 `;
+export const FormControl = Styled.div`
+  /* border: 1px solid violet; */
+  width: 80%;
+  color: #ffffff;
+  margin: 10px auto;
+  
+`
+export const FormLabel = Styled.p`  
+  margin: 5px 0;
+  font-size: 16px;
+  font-weight: bold;
+
+`
+export const Radio = Styled.input.attrs({ type: 'radio' })`
+ 
+  /* Estilo para o estado de seleção */
+  /* &:checked {
+    background-color: #007bff;
+    border-color: #007bff;
+  } */
+  
+`
+
 export const btnEntrar = Styled.p`
   margin: auto;
   color: ${theme.colors.colorThree};
