@@ -77,10 +77,9 @@ export const titulo = Styled.input`
   margin-top: 7px;
 `;
 export const divEsquecerSenha = Styled.div`
-  width: 80%;
+  width: 70%;
   margin: auto;
-
-  border: 1px solid violet;
+  /* border: 1px solid violet; */
 
 `;
 export const esquecerSenha = Styled.p`
@@ -89,7 +88,7 @@ export const esquecerSenha = Styled.p`
   
   
 `;
-export const FormControl = Styled.div`
+export const tipoCandidato = Styled.div`
   /* border: 1px solid violet; */
   width: 80%;
   color: #ffffff;
@@ -102,14 +101,17 @@ export const FormLabel = Styled.p`
   font-weight: bold;
 
 `
-export const Radio = Styled.input.attrs({ type: 'radio' })`
+// export const Radio = Styled.input.attrs({ type: 'radio' })`
  
-  /* Estilo para o estado de seleção */
-  /* &:checked {
-    background-color: #007bff;
-    border-color: #007bff;
-  } */
+//   /* Estilo para o estado de seleção */
+//   /* &:checked {
+//     background-color: #007bff;
+//     border-color: #007bff;
+//   } */
   
+// `
+export const labelCandidato = Styled.label`
+  color: #ffffff;
 `
 
 export const btnEntrar = Styled.p`

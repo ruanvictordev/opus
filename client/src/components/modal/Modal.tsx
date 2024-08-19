@@ -1,3 +1,4 @@
+import * as React from 'react';
 import * as S from "./styles";
 import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
@@ -5,14 +6,18 @@ import { FiX } from "react-icons/fi";
 
 
 
-import Radio from '@mui/material/Radio';
-import RadioGroup from '@mui/material/RadioGroup';
-import FormControlLabel from '@mui/material/FormControlLabel';
+// import Radio from '@mui/material/Radio';
+// import RadioGroup from '@mui/material/RadioGroup';
+// import FormControlLabel from '@mui/material/FormControlLabel';
+// import FormControl from '@mui/material/FormControl';
+// import FormLabel from '@mui/material/FormLabel';
+
+
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+// import FormHelperText from '@mui/material/FormHelperText';
 import FormControl from '@mui/material/FormControl';
-import FormLabel from '@mui/material/FormLabel';
-
-
-
+import Select, { SelectChangeEvent } from '@mui/material/Select';
 
 interface ModalProps {
   handleOpen: () => void;
@@ -25,6 +30,13 @@ export default function ModalLogin({
   open,
   handModalForm,
 }: ModalProps) {
+
+  const [candidato, setCandidato] = React.useState('');
+
+  const handleChange = (event: SelectChangeEvent) => {
+    setCandidato(event.target.value);
+  };
+
   return (
     <>
       <Modal
@@ -53,7 +65,7 @@ export default function ModalLogin({
                 <S.esquecerSenha>Esqueceu senha?</S.esquecerSenha>
               </S.divEsquecerSenha>
 
-              <S.FormControl>
+              {/* <S.FormControl>
                 <S.FormLabel id="demo-row-radio-buttons-group-label">Tipo de Candidato</S.FormLabel>
                 <RadioGroup
                   row
@@ -68,8 +80,37 @@ export default function ModalLogin({
                     control={<Radio />}
                     label="other"
                   /> */}
-                </RadioGroup>
-              </S.FormControl>
+                {/* </RadioGroup>
+              </S.FormControl> */} 
+
+                  <S.tipoCandidato>
+
+                    <FormControl required sx={{ m: 1, minWidth: 190 }}>
+                      <InputLabel id="demo-simple-select-required-label">
+                      <S.labelCandidato>Tipo de Candidato</S.labelCandidato></InputLabel>
+                      <Select
+                        labelId="demo-simple-select-required-label"
+                        id="demo-simple-select-required"
+                        value={candidato}
+                        label="Tipo de Candidato *"
+                        onChange={handleChange}
+                      >
+                        {/* <MenuItem value="">
+                          <em>None</em>
+                        </MenuItem> */}
+
+                        <MenuItem value={10}>Pessoa Física</MenuItem>
+                        <MenuItem value={20}>Pessoa Jurídica (PJ)</MenuItem>
+                    
+                        {/* <MenuItem value={30}>Thirty</MenuItem> */}
+                      </Select>
+                      {/* <FormHelperText>Required</FormHelperText> */}
+                    </FormControl>
+                  </S.tipoCandidato>
+
+
+
+
 
               <S.cx>
                 <S.btnEntrar onClick={handModalForm}>Entrar</S.btnEntrar>
